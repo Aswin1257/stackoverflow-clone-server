@@ -41,7 +41,7 @@ export const login = async (req, res) => {
     if (!isPasswordCrt) {
       return res.status(400).json({ message: "Invalid credentials" });
     }
-    const loginInfoObj={...deviceInfo,ip:req.ip,id:existinguser._id}
+    const loginInfoObj={...deviceInfo,id:existinguser._id}
     const token = jwt.sign(
       { email: existinguser.email, id: existinguser._id },
       process.env.JWT_SECRET,
